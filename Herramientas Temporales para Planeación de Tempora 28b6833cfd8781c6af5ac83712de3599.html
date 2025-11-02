@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Herramientas Temporales para Planeación de Temporadas - Chedraui Corporativo México</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28b6833c-fd87-81c6-af5a-c83712de3599" class="page sans"><header><img class="page-cover-image" src="Compras%201.png" style="object-position:center 50%"/><h1 class="page-title">Herramientas Temporales para Planeación de Temporadas - Chedraui Corporativo México</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Tipo proyecto</th><td><span class="selected-value select-value-color-green">Proyecto profesional</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Habilidades</th><td><span class="selected-value select-value-color-yellow">Análisis de datos</span><span class="selected-value select-value-color-gray">Limpieza de datos</span><span class="selected-value select-value-color-green">Visualización de datos</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tecnologías </th><td><span class="selected-value select-value-color-yellow">Azure</span><span class="selected-value select-value-color-default">Excel</span><span class="selected-value select-value-color-purple">Python</span><span class="selected-value select-value-color-green">VBA</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de inicio</th><td><time>@01/04/2024</time></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de finalización</th><td><time>@30/11/2024</time></td></tr></tbody></table></header><div class="page-body"><nav id="28b6833c-fd87-8152-bead-d9ef808f6c01" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-8155-97f0-c3a4d0bf182a">Título del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-81cc-a7c2-d6fdb1a43d9d">Descripción del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-81d2-a4e7-d8c60e6ac2fc">Objetivo general del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-8182-baec-eecd4e074f08">Objetivos específicos del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-8187-90eb-df6f06f9def5">Tecnologías Utilizadas</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2996833c-fd87-80a9-b375-fe831779eaa5">Herramientas Desarrolladas </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2996833c-fd87-8050-8bb0-f469e9521311">Flujo de Datos</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-8183-b28d-cf08bcf3c581">Resultados</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28b6833c-fd87-8106-8210-f0b40c3cdd67">Imágenes del Proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#28b6833c-fd87-8140-ab01-df70565c5c51"><strong>Simulador OTB (Abierto a Compra)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2996833c-fd87-80b6-aaca-f79792f575e3">Herramienta de Planeación de Compras</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2996833c-fd87-80e6-bd46-c6064fba77ae"><strong>Herramienta de Distribución</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2996833c-fd87-807d-9b77-f97119a4134c">Ejemplo de Uso</a></div></nav><h2 id="28b6833c-fd87-8155-97f0-c3a4d0bf182a" class="">Título del proyecto</h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-81b8-9762-e452441bca50"><div style="width:100%"><p id="28b6833c-fd87-81b8-b429-f4ab2954a330" class=""><strong>Herramientas Temporales para Planeación de Temporadas - Chedraui Corporativo México</strong></p></div></figure><h2 id="28b6833c-fd87-81cc-a7c2-d6fdb1a43d9d" class="">Descripción del proyecto</h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-81f5-a62c-d7ea357cc82e"><div style="width:100%"><p id="28b6833c-fd87-8193-83c1-d555f2a7a9e3" class="">Este proyecto consistió en el desarrollo de tres herramientas en Excel diseñadas para apoyar a los compradores del corporativo de Chedraui México en la planeación de temporadas especiales (como Navidad, Regreso a Clases, San Valentín, etc.). Las herramientas fueron concebidas como soluciones temporales que facilitaran la adopción de procesos analíticos mediante tecnologías familiares para los usuarios, sirviendo como paso intermedio hacia soluciones más especializadas.</p></div></figure><h2 id="28b6833c-fd87-81d2-a4e7-d8c60e6ac2fc" class="">Objetivo general del proyecto</h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-8172-8b39-d85107c5b61a"><div style="width:100%"><p id="28b6833c-fd87-81b1-a9f0-c5d12898473c" class="">Desarrollar herramientas accesibles y automatizadas en Excel que permitan a los compradores de Chedraui realizar una planeación más eficiente de compras y distribución de mercancías durante temporadas especiales</p></div></figure><h2 id="28b6833c-fd87-8182-baec-eecd4e074f08" class="">Objetivos específicos del proyecto</h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-8165-8f87-dad4310da905"><div style="width:100%"><ol type="1" id="28b6833c-fd87-81e8-a80a-d7a8aaf46039" class="numbered-list" start="1"><li>Facilitar la planeación de compras en temporadas especiales mediante herramientas accesibles y automatizadas.</li></ol><ol type="1" id="2996833c-fd87-809b-a6b6-f45c4c89412c" class="numbered-list" start="2"><li>Aplicar reglas de negocio mediante macros en VBA para realizar simulaciones y cálculos personalizados.</li></ol><ol type="1" id="2996833c-fd87-80ba-bb0a-c21567ddc1a6" class="numbered-list" start="3"><li>Mejorar la eficiencia en la distribución de mercancías a nivel SKU-Tienda.</li></ol><ol type="1" id="2996833c-fd87-8060-b760-c763d6c9010b" class="numbered-list" start="4"><li>Reducir la venta perdida y el inventario de bajo desplazamiento en temporadas clave.</li></ol></div></figure><h2 id="28b6833c-fd87-8187-90eb-df6f06f9def5" class="">Tecnologías Utilizadas</h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-8116-a207-e579cc79dac1"><div style="width:100%"><ul id="2996833c-fd87-8051-9063-c60f2cac9b88" class="bulleted-list"><li style="list-style-type:disc">Excel</li></ul><ul id="2996833c-fd87-8027-8b5a-ec8c5d8a06ba" class="bulleted-list"><li style="list-style-type:disc">Power Query</li></ul><ul id="2996833c-fd87-8052-acf8-f5dbdb6d2740" class="bulleted-list"><li style="list-style-type:disc">VBA (Visual Basic for Applications)</li></ul><ul id="2996833c-fd87-805c-9290-fea52dae5388" class="bulleted-list"><li style="list-style-type:disc">Azure Data Factory</li></ul><ul id="2996833c-fd87-80d2-b9cc-ca5d09ea478c" class="bulleted-list"><li style="list-style-type:disc">Azure Data Lake</li></ul><ul id="2996833c-fd87-80f3-b2f0-e9697af0d0a2" class="bulleted-list"><li style="list-style-type:disc">Databricks (Python + PySpark)</li></ul></div></figure><h2 id="2996833c-fd87-80a9-b375-fe831779eaa5" class="">Herramientas Desarrolladas </h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-8109-a031-e7cfb1f5c0d8"><div style="width:100%"><ul id="2996833c-fd87-80a9-b7de-eeee1302d024" class="bulleted-list"><li style="list-style-type:disc"><strong>Simulador OTB</strong>: Calcula el presupuesto disponible para compras por categoría, considerando proyecciones de venta, inventario inicial y días de inventario objetivo.</li></ul><ul id="2996833c-fd87-80e0-b11c-d87c0cc7f285" class="bulleted-list"><li style="list-style-type:disc"><strong>Herramienta de Planeación de Compras</strong>: Analiza el comportamiento por SKU y permite alinear proyecciones con estrategias comerciales específicas.</li></ul><ul id="2996833c-fd87-8029-9c82-cf24160d683f" class="bulleted-list"><li style="list-style-type:disc"><strong>Herramienta de Distribución de Mercancías</strong>: Proyecta ventas a nivel SKU-Tienda, considerando múltiples variables y permitiendo segmentaciones por tipo de tienda y rango de precio.</li></ul></div></figure><h2 id="2996833c-fd87-8050-8bb0-f469e9521311" class="">Flujo de Datos</h2><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="2996833c-fd87-8032-ae63-da4c33b4f126"><div style="width:100%"><ol type="1" id="2996833c-fd87-803c-b4fb-dbde93c91ed3" class="numbered-list" start="1"><li><strong>Extracción de datos diarios: </strong>Los datos operativos se extraen diariamente desde los sistemas fuente mediante <strong>Azure Data Factory</strong>, y se almacenan en formato <strong>Parquet</strong> dentro de un <strong>Data Lake en Azure</strong>.</li></ol><ol type="1" id="2996833c-fd87-80e5-88ee-f3776ec20098" class="numbered-list" start="2"><li><strong>Procesamiento mensual en Databricks: </strong>A través de <strong>Databricks</strong>, utilizando <strong>Python y PySpark</strong>, se realiza el procesamiento de los datos para:<ul id="2996833c-fd87-8049-bd80-c136f65adabf" class="bulleted-list"><li style="list-style-type:disc">Agrupar y segmentar la información</li></ul><ul id="2996833c-fd87-80b2-8286-f773e1377485" class="bulleted-list"><li style="list-style-type:disc">Reducir el volumen de registros</li></ul><ul id="2996833c-fd87-80bc-8e6d-fd96428a0ddb" class="bulleted-list"><li style="list-style-type:disc">Generar tablas optimizadas para análisis</li></ul></li></ol><ol type="1" id="2996833c-fd87-804d-8bb5-d1fc224d22fb" class="numbered-list" start="3"><li><strong>Consulta desde Excel mediante Power Query: </strong>Las herramientas desarrolladas en Excel se conectan directamente al <strong>Data Lake Storage</strong> utilizando <strong>Power Query</strong>, accediendo a las tablas procesadas en Databricks.</li></ol><ol type="1" id="2996833c-fd87-8049-b29b-fd2714b53dfd" class="numbered-list" start="4"><li><strong>Aplicación de reglas de negocio con VBA: </strong>Dentro de cada herramienta, se ejecutan <strong>macros en VBA</strong> que aplican reglas específicas para realizar cálculos, simulaciones y proyecciones según el tipo de análisis requerido (OTB, compras, distribución).</li></ol><ol type="1" id="2996833c-fd87-80b3-88d5-c09851c23b5f" class="numbered-list" start="5"><li><strong>Uso operativo por compradores: </strong>Las herramientas son utilizadas por los compradores para planear compras y distribuir mercancías durante temporadas especiales, con base en datos históricos, proyecciones y estrategias comerciales.</li></ol></div></figure><h2 id="28b6833c-fd87-8183-b28d-cf08bcf3c581" class="">Resultados</h2><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-8147-9a47-d8c4f928a8d3"><div style="width:100%"><ul id="2996833c-fd87-8019-8546-c7b5fac2a72c" class="bulleted-list"><li style="list-style-type:disc">Implementación exitosa en la temporada <strong>Julio–Septiembre 2024 (Regreso a Clases)</strong> para el departamento de <strong>Papelería</strong> a nivel nacional.</li></ul><ul id="2996833c-fd87-809c-92bb-d1c36fb4ad1e" class="bulleted-list"><li style="list-style-type:disc"><strong>Reducción del 10% en venta perdida</strong> respecto a 2023.</li></ul><ul id="2996833c-fd87-80fd-a9c9-c8564cdc083c" class="bulleted-list"><li style="list-style-type:disc"><strong>Disminución del 13% en inventario de bajo desplazamiento</strong>, reflejando una compra y distribución más efectiva.</li></ul></div></figure><h2 id="28b6833c-fd87-8106-8210-f0b40c3cdd67" class="">Imágenes del Proyecto</h2><h3 id="28b6833c-fd87-8140-ab01-df70565c5c51" class=""><strong>Simulador OTB (Abierto a Compra)</strong></h3><figure id="2996833c-fd87-8079-b8b7-cc2f4ef019e1" class="image"><a href="OTB.png"><img style="width:709.984375px" src="OTB.png"/></a></figure><p id="2996833c-fd87-80ba-bd94-e975e2cf4276" class="">
+</p><h3 id="2996833c-fd87-80b6-aaca-f79792f575e3" class="">Herramienta de Planeación de Compras</h3><figure id="2996833c-fd87-809e-88d8-e10a2f1fa082" class="image"><a href="Compras.png"><img style="width:709.953125px" src="Compras.png"/></a></figure><p id="2996833c-fd87-805b-8f29-d50e68cf4f96" class="">
+</p><h3 id="2996833c-fd87-80e6-bd46-c6064fba77ae" class=""><strong>Herramienta de Distribución</strong></h3><figure id="2996833c-fd87-8000-b74f-c12488c621cc" class="image"><a href="Distribucion.png"><img style="width:709.953125px" src="Distribucion.png"/></a></figure><p id="2996833c-fd87-802f-a428-c22b8174e75f" class="">
+</p><h2 id="2996833c-fd87-807d-9b77-f97119a4134c" class="">Ejemplo de Uso</h2><figure id="2996833c-fd87-80df-9b6d-ff83d15d276a"><div class="source"><a href="Ejemplo_Hta.mp4">attachment:fa68b639-caad-4b94-b9d9-70e09298079e:Ejemplo_Hta.mp4</a></div></figure><p id="28b6833c-fd87-8102-a180-fa0792ed42fd" class="">
+</p><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="28b6833c-fd87-811c-86f7-c19c2ea7252d"><div style="width:100%"><p id="28b6833c-fd87-8102-83f1-e2194eb77a79" class="">📊Realizado por: Hansel Rodríguez Flores</p><p id="28b6833c-fd87-810d-84a5-cb7e63fa2c63" class="">📊Octubre 2025</p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
